@@ -1,0 +1,6 @@
+# port
+3490
+# folder for tracker files
+torrents
+# seconds of silence before a peer counts as dead
+960

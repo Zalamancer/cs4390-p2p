@@ -1,0 +1,17 @@
+# Compiled programs (the project must not include these)
+tracker
+peer1/peer
+peer2/peer
+peer3/peer
+*.o
+
+# Created when the programs run
+run/
+torrents/
+cache/
+demo.log
+peer*/shared/*
+!peer*/shared/.gitkeep
+*.part
+
+.DS_Store
