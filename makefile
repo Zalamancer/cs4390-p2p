@@ -7,8 +7,8 @@ PEERS   = peer1 peer2 peer3
 
 all: tracker $(addsuffix /peer,$(PEERS))
 
-tracker: tracker.c $(COMMON) $(HEADERS)
-	$(CC) $(CFLAGS) -o $@ tracker.c $(COMMON)
+tracker: tracker\ -\ ihsan.c $(COMMON) $(HEADERS)
+	$(CC) $(CFLAGS) -o $@ "tracker - ihsan.c" $(COMMON)
 
 $(addsuffix /peer,$(PEERS)): peer.c $(COMMON) $(HEADERS)
 	$(CC) $(CFLAGS) -o $@ peer.c $(COMMON)
