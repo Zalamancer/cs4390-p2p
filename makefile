@@ -13,8 +13,11 @@ tracker: tracker\ -\ ihsan.c $(COMMON) $(HEADERS)
 $(addsuffix /peer,$(PEERS)): peer.c $(COMMON) $(HEADERS)
 	$(CC) $(CFLAGS) -o $@ peer.c $(COMMON)
 
+khoa: tracker peer_khoa.c $(COMMON) $(HEADERS)
+	for p in $(PEERS); do $(CC) $(CFLAGS) -o $$p/peer peer_khoa.c $(COMMON); done
+
 clean:
 	rm -f tracker $(addsuffix /peer,$(PEERS))
 	rm -rf run torrents demo.log
 
-.PHONY: all clean
+.PHONY: all clean khoa
