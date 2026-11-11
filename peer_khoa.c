@@ -1,23 +1,6 @@
 /*
  * peer_khoa.c - peer program for the CS 4390 P2P file sharing project.
  * Author: Khoa Ho
- *
- * Threads:
- *   main thread      reads typed commands (REQ LIST, GET, createtracker, updatetracker, quit)
- *   server thread    accepts other peers; each connection gets its own handler thread
- *   periodic thread  sends updatetracker every interval and refreshes unfinished downloads
- *   download threads one manager per file, which runs several worker threads
- *
- * Peer-to-peer messages (same format as the team's other peer, so they work together):
- *   request: <GET filename start_byte end_byte>\n      end_byte is exclusive, at most 1024 bytes
- *   reply:   <REP DATA start_byte end_byte>\n then the raw bytes
- *   errors:  <GET invalid>\n (bad request or chunk over 1024)  <GET fail>\n (bytes not held)
- *
- * Files:
- *   <shared>/name         complete file
- *   <shared>/name.part    file still downloading
- *   cache/name.track      saved tracker file for an unfinished download
- *   cache/name.state      one '0' or '1' per segment, so a restart resumes the download
  */
 #include "common.h"
 #include "md5.h"
